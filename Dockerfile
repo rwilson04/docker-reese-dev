@@ -2,7 +2,7 @@ FROM shinymayhem/dev
 
 RUN \
 	useradd -m reese && \
-	usermod -a -G admin reese &&
+	usermod -a -G admin reese && \
 	cd /home/reese && \
 	git clone http://github.com/shinymayhem/home && \
 	cp -R home/. . && \
