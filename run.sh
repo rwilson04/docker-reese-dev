@@ -13,7 +13,7 @@ if [ "${AUTHORIZED_KEYS}" != "" ]; then
         x=$(echo $x |sed -e 's/^ *//' -e 's/ *$//')
         cat /home/${LOCAL_USER}/.ssh/authorized_keys | grep "$x" >/dev/null 2>&1
         if [ $? -ne 0 ]; then
-            echo "=> Adding public key to /root/.ssh/authorized_keys: $x"
+            echo "=> Adding public key to /home/${LOCAL_USER}/.ssh/authorized_keys: $x"
             echo "$x" >> /home/${LOCAL_USER}/.ssh/authorized_keys
         fi
     done
