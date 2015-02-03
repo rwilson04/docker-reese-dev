@@ -13,6 +13,4 @@ ADD run.sh /run.sh
 
 RUN chmod +x /run.sh
 
-WORKDIR /home/reese
-
-CMD ['run.sh']
+CMD ['/run.sh']
