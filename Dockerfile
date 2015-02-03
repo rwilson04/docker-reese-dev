@@ -1,7 +1,7 @@
 FROM shinymayhem/dev
 
 RUN \
-	useradd -m reese && \
+	useradd -m reese -s /bin/bash && \
 	usermod -a -G admin reese && \
 	cd /home/reese && \
 	git clone http://github.com/shinymayhem/home && \
@@ -13,4 +13,4 @@ ADD run.sh /run.sh
 
 RUN chmod +x /run.sh
 
-CMD sh /run.sh
+CMD /bin/bash /run.sh

@@ -16,6 +16,7 @@ if [ "${AUTHORIZED_KEYS}" != "" ]; then
             echo "=> Adding public key to /home/${LOCAL_USER}/.ssh/authorized_keys: $x"
             echo "$x" >> /home/${LOCAL_USER}/.ssh/authorized_keys
         fi
+        chown -R ${LOCAL_USER} /home/${LOCAL_USER}/.ssh
     done
 fi
 
