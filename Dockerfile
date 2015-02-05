@@ -13,4 +13,7 @@ ADD run.sh /run.sh
 
 RUN chmod +x /run.sh
 
+RUN \
+	apt-get install screen
+
 CMD /bin/bash /run.sh
