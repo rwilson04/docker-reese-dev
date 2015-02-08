@@ -9,6 +9,7 @@ cp /secrets/github.pem /home/reese/.ssh/
 cp /secrets/authorized_keys /home/reese/.ssh/
 chmod 600 /home/reese/.ssh/config
 chmod 600 /home/reese/.ssh/github.pem
+chown -R reese /home/reese/.ssh
 
 ##get source code
 #git clone git@github.com:shinymayhem/nodify-app /tmp/cloned
@@ -17,12 +18,7 @@ chmod 600 /home/reese/.ssh/github.pem
 #php composer.phar self-update
 #php composer.phar install
 
-#fix permissions
-chown -R www-data /var/www/html/data
-chown -R www-data /var/www/html/logs
-chown -R www-data /var/www/html/public/assets
-
-echo "nodify dal html data container"
+echo "starting ssh"
 
 bash /opt/deploy/ssh.sh
 #sh -c '/usr/sbin/sshd -D'
