@@ -1,23 +1,28 @@
 #!/bin/bash
 
-if [ "${AUTHORIZED_KEYS}" != "" ]; then
-    echo "=> Found authorized keys"
-    mkdir -p /home/${LOCAL_USER}/.ssh
-    chmod 700 /home/${LOCAL_USER}/.ssh
-    touch /home/${LOCAL_USER}/.ssh/authorized_keys
-    chmod 600 /home/${LOCAL_USER}/.ssh/authorized_keys
-    IFS=$'\n'
-    arr=$(echo ${AUTHORIZED_KEYS} | tr "," "\n")
-    for x in $arr
-    do
-        x=$(echo $x |sed -e 's/^ *//' -e 's/ *$//')
-        cat /home/${LOCAL_USER}/.ssh/authorized_keys | grep "$x" >/dev/null 2>&1
-        if [ $? -ne 0 ]; then
-            echo "=> Adding public key to /home/${LOCAL_USER}/.ssh/authorized_keys: $x"
-            echo "$x" >> /home/${LOCAL_USER}/.ssh/authorized_keys
-        fi
-        chown -R ${LOCAL_USER} /home/${LOCAL_USER}/.ssh
-    done
-fi
+#mkdir -p /home/reese/.composer
+#cp /secrets/.composer_auth.json /home/reese/.composer/auth.json
+mkdir -p /home/reese/.ssh/config
+chmod 700 /home/reese/.ssh
+cp /secrets/ssh.config /home/reese/.ssh/config
+cp /secrets/github.pem /home/reese/.ssh/
+cp /secrets/authorized_keys /home/reese/.ssh/
+chmod 600 /home/reese/.ssh/config
+chmod 600 /home/reese/.ssh/github.pem
 
-sh -c '/usr/sbin/sshd -D'
+##get source code
+#git clone git@github.com:shinymayhem/nodify-app /tmp/cloned
+#cp -R /tmp/cloned/. /var/www/html
+#cd /var/www/html
+#php composer.phar self-update
+#php composer.phar install
+
+#fix permissions
+chown -R www-data /var/www/html/data
+chown -R www-data /var/www/html/logs
+chown -R www-data /var/www/html/public/assets
+
+echo "nodify dal html data container"
+
+bash /opt/deploy/ssh.sh
+#sh -c '/usr/sbin/sshd -D'

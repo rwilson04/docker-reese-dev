@@ -9,11 +9,11 @@ RUN \
 	echo 'so ~/.syncedvimrc' > .vimrc
 
 
-ADD run.sh /run.sh
+ADD run.sh /opt/deploy/run.sh
 
-RUN chmod +x /run.sh
+RUN chmod +x /opt/deploy/run.sh
 
 RUN \
-	apt-get install screen
-
-CMD /bin/bash /run.sh
+	apt-get update && \
+	apt-get install -y screen && \
+    rm -rf /var/lib/apt/lists/*
