@@ -2,7 +2,7 @@
 
 #mkdir -p /home/reese/.composer
 #cp /secrets/.composer_auth.json /home/reese/.composer/auth.json
-mkdir -p /home/reese/.ssh/config
+mkdir -p /home/reese/.ssh
 chmod 700 /home/reese/.ssh
 cp /secrets/ssh.config /home/reese/.ssh/config
 cp /secrets/github.pem /home/reese/.ssh/
