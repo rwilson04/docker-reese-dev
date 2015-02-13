@@ -9,7 +9,7 @@ cp /secrets/github.pem /home/reese/.ssh/
 cp /secrets/authorized_keys /home/reese/.ssh/
 chmod 600 /home/reese/.ssh/config
 chmod 600 /home/reese/.ssh/github.pem
-chown -R reese /home/reese/.ssh
+chown -R reese /home/reese/
 
 ##get source code
 #git clone git@github.com:shinymayhem/nodify-app /tmp/cloned
