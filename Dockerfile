@@ -10,8 +10,9 @@ RUN \
 
 
 ADD run.sh /opt/deploy/run.sh
+ADD init-home.sh /opt/deploy/init-home.sh
 
-RUN chmod +x /opt/deploy/run.sh
+RUN chmod +x /opt/deploy/*.sh
 
 RUN \
 	apt-get update && \
