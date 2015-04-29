@@ -5,7 +5,7 @@
 mkdir -p /home/reese/.ssh
 chmod 700 /home/reese/.ssh
 cp /secrets/ssh.config /home/reese/.ssh/config
-cp /secrets/github.pem /home/reese/.ssh/
+cp /secrets/*.pem /home/reese/.ssh/
 cp /secrets/authorized_keys /home/reese/.ssh/
 chmod 600 /home/reese/.ssh/config
 chmod 600 /home/reese/.ssh/github.pem
