@@ -1,4 +1,4 @@
-FROM shinymayhem/dev
+FROM shinymayhem/reese-dev
 
 USER root
 
